@@ -97,7 +97,7 @@ func NewBasic(datastore datastore.Datastore) negroni.HandlerFunc {
 			return
 		}
 
-		r := w.(negroni.ResponseWriter)
+		r := negroni.NewResponseWriter(w)
 
 		// Password correct.
 		if r.Status() != http.StatusUnauthorized {
